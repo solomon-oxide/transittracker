@@ -2,21 +2,19 @@ package com.phoenixai.transittracker.model;
 
 /**
  * Represents the destination point of a route
+ * Now extends Stop with StopType.DESTINATION
  */
-public class Destination {
-    private String destinationId;
-    private String destinationName;
-    private Location location;
+public class Destination extends Stop {
 
     // Default constructor
     public Destination() {
+        super();
+        setStopType(StopType.DESTINATION);
     }
 
     // Constructor with basic information
     public Destination(String destinationId, String destinationName, Location location) {
-        this.destinationId = destinationId;
-        this.destinationName = destinationName;
-        this.location = location;
+        super(destinationId, destinationName, location, StopType.DESTINATION);
     }
 
     // Full constructor
@@ -24,42 +22,31 @@ public class Destination {
         this(destinationId, destinationName, location);
     }
 
-    // Getters
+    // Convenience getters that delegate to parent class
     public String getDestinationId() {
-        return destinationId;
+        return getStopId();
     }
 
     public String getDestinationName() {
-        return destinationName;
+        return getStopName();
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
-
-
-    // Setters
+    // Convenience setters that delegate to parent class
     public void setDestinationId(String destinationId) {
-        this.destinationId = destinationId;
+        setStopId(destinationId);
     }
 
     public void setDestinationName(String destinationName) {
-        this.destinationName = destinationName;
+        setStopName(destinationName);
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-
-    
     @Override
     public String toString() {
         return "Destination{" +
-                "destinationId='" + destinationId + '\'' +
-                ", destinationName='" + destinationName + '\'' +
-                ", location=" + location +
+                "destinationId='" + getStopId() + '\'' +
+                ", destinationName='" + getStopName() + '\'' +
+                ", location=" + getLocation() +
+                ", stopType=" + getStopType() +
                 '}';
     }
 }

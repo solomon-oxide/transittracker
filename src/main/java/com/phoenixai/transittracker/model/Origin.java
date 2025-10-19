@@ -2,21 +2,19 @@ package com.phoenixai.transittracker.model;
 
 /**
  * Represents the origin point of a route
+ * Now extends Stop with StopType.ORIGIN
  */
-public class Origin {
-    private String originId;
-    private String originName;
-    private Location location;
+public class Origin extends Stop {
 
     // Default constructor
     public Origin() {
+        super();
+        setStopType(StopType.ORIGIN);
     }
 
     // Constructor with basic information
     public Origin(String originId, String originName, Location location) {
-        this.originId = originId;
-        this.originName = originName;
-        this.location = location;
+        super(originId, originName, location, StopType.ORIGIN);
     }
 
     // Full constructor
@@ -24,41 +22,31 @@ public class Origin {
         this(originId, originName, location);
     }
 
-    // Accessors
+    // Convenience getters that delegate to parent class
     public String getOriginId() {
-        return originId;
+        return getStopId();
     }
 
     public String getOriginName() {
-        return originName;
+        return getStopName();
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
-
-
-    // Mutators
+    // Convenience setters that delegate to parent class
     public void setOriginId(String originId) {
-        this.originId = originId;
+        setStopId(originId);
     }
 
     public void setOriginName(String originName) {
-        this.originName = originName;
+        setStopName(originName);
     }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
 
     @Override
     public String toString() {
         return "Origin{" +
-                "originId='" + originId + '\'' +
-                ", originName='" + originName + '\'' +
-                ", location=" + location +
+                "originId='" + getStopId() + '\'' +
+                ", originName='" + getStopName() + '\'' +
+                ", location=" + getLocation() +
+                ", stopType=" + getStopType() +
                 '}';
     }
 }
