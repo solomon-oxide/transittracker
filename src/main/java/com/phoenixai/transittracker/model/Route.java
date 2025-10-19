@@ -117,6 +117,67 @@ public class Route {
         return stops.contains(stop);
     }
 
+    /**
+     * Get all stops including origin and destination in order
+     * @return ArrayList of all stops in route order
+     */
+    public ArrayList<Stop> getAllStopsInOrder() {
+        ArrayList<Stop> allStops = new ArrayList<>();
+        if (origin != null) {
+            allStops.add(origin);
+        }
+        allStops.addAll(stops);
+        if (destination != null) {
+            allStops.add(destination);
+        }
+        return allStops;
+    }
+
+    /**
+     * Get total number of stops including origin and destination
+     * @return total stop count
+     */
+    public int getTotalStopCount() {
+        int count = stops.size();
+        if (origin != null) count++;
+        if (destination != null) count++;
+        return count;
+    }
+
+    /**
+     * Check if a stop is the origin
+     * @param stop the stop to check
+     * @return true if the stop is the origin
+     */
+    public boolean isOrigin(Stop stop) {
+        return origin != null && origin.equals(stop);
+    }
+
+    /**
+     * Check if a stop is the destination
+     * @param stop the stop to check
+     * @return true if the stop is the destination
+     */
+    public boolean isDestination(Stop stop) {
+        return destination != null && destination.equals(stop);
+    }
+
+    /**
+     * Get the origin as a Stop
+     * @return origin as Stop
+     */
+    public Stop getOriginAsStop() {
+        return origin;
+    }
+
+    /**
+     * Get the destination as a Stop
+     * @return destination as Stop
+     */
+    public Stop getDestinationAsStop() {
+        return destination;
+    }
+
     @Override
     public String toString() {
         return "Route{" +
@@ -124,6 +185,7 @@ public class Route {
                 ", origin=" + origin +
                 ", destination=" + destination +
                 ", stops=" + stops.size() +
+                ", totalStops=" + getTotalStopCount() +
                 '}';
     }
 }

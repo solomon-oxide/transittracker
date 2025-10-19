@@ -105,6 +105,22 @@ body {
     font-size: 0.9rem;
 }
 
+.stop-popup {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.stop-popup h4 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+.stop-popup p {
+    margin: 0.25rem 0;
+    color: #666;
+    font-size: 0.85rem;
+}
+
 .legend {
     position: absolute;
     top: 10px;
@@ -148,6 +164,23 @@ body {
 .user-location-marker {
     background: #ff6b6b;
     border: 3px solid white;
+}
+
+.origin-marker {
+    background: #2196f3;
+    border: 2px solid white;
+}
+
+.destination-marker {
+    background: #f44336;
+    border: 2px solid white;
+}
+
+.route-line {
+    background: linear-gradient(90deg, #ff6b6b 50%, transparent 50%);
+    background-size: 10px 2px;
+    border: none;
+    height: 3px;
 }
 
 @media (max-width: 768px) {

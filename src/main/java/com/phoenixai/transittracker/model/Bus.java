@@ -1,31 +1,25 @@
 
 package com.phoenixai.transittracker.model;
 
-
-public class Bus {
-    private String busId;
+public class Bus extends User {
     private Route route;
     private Company company;
-    private Location currentlocation;
 
     public Bus() {
-    
+        super();
     }
-
 
     public Bus(String busId, Route route, Company company, Location currentlocation) {
-        this.busId = busId;
+        super(busId, currentlocation);
         this.route = route;
         this.company = company;
-        this.currentlocation = currentlocation;
     }
-
 
     /*
      * Accessors
      */
     public String getBusId() {
-        return busId;
+        return getId();
     }
 
     public Route getRoute() {
@@ -37,14 +31,14 @@ public class Bus {
     }
 
     public Location getCurrentLocation() {
-        return currentlocation;
+        return getLocation();
     } 
 
     /*
      * Mutators
      */
     public void setBusId(String busId) {
-        this.busId = busId;
+        setId(busId);
     }
 
     public void setRoute(Route route) {
@@ -56,17 +50,16 @@ public class Bus {
     }
 
     public void setCurrentLocation(Location currentlocation) {
-        this.currentlocation = currentlocation;
+        setLocation(currentlocation);
     }
-
 
     @Override
     public String toString() {
         return "Bus{" +
-                "busId='" + busId + '\'' +
+                "busId='" + getId() + '\'' +
                 ", route=" + route + '\'' +
                 ", company=" + company + '\'' +
-                ", currentlocation=" + currentlocation +
+                ", currentlocation=" + getLocation() +
                 '}';
     }
 }
