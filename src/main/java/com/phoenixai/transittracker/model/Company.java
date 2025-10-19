@@ -1,4 +1,3 @@
-/* Generated for time */
 
 package com.phoenixai.transittracker.model;
 

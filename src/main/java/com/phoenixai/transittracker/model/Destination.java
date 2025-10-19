@@ -1,9 +1,6 @@
 package com.phoenixai.transittracker.model;
 
-/**
- * Represents the destination point of a route
- * Now extends Stop with StopType.DESTINATION
- */
+
 public class Destination extends Stop {
 
     // Default constructor
@@ -12,17 +9,18 @@ public class Destination extends Stop {
         setStopType(StopType.DESTINATION);
     }
 
-    // Constructor with basic information
+    // Constructors
     public Destination(String destinationId, String destinationName, Location location) {
         super(destinationId, destinationName, location, StopType.DESTINATION);
     }
 
-    // Full constructor
     public Destination(String destinationId, String destinationName, Location location, String description) {
         this(destinationId, destinationName, location);
     }
 
-    // Convenience getters that delegate to parent class
+
+    
+    // Accessors
     public String getDestinationId() {
         return getStopId();
     }
@@ -31,7 +29,9 @@ public class Destination extends Stop {
         return getStopName();
     }
 
-    // Convenience setters that delegate to parent class
+
+
+    // Mutators
     public void setDestinationId(String destinationId) {
         setStopId(destinationId);
     }

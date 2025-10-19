@@ -13,23 +13,22 @@ public class Location {
     private LocalDateTime timestamp;
     private String address;
 
-    // Default constructor
+    // Constructors
     public Location() {
         this.timestamp = LocalDateTime.now();
     }
 
-    // Constructor with coordinates
     public Location(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    // Full constructor
     public Location(double latitude, double longitude, double altitude, double accuracy) {
         this(latitude, longitude);
         this.altitude = altitude;
         this.accuracy = accuracy;
     }
+
 
     // Accessors
     public double getLatitude() {
@@ -55,6 +54,7 @@ public class Location {
     public String getAddress() {
         return address;
     }
+
 
     // Mutators
     public void setLatitude(double latitude) {
